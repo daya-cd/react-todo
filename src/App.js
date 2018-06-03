@@ -1,43 +1,43 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { updateUser } from './actions/user-actions';
 
 class App extends Component {
-
-
-  onClick()
-  {
-    alert('clicked');
+  constructor(props) {
+    super(props);
+    this.onUpdateUser = this.onUpdateUser.bind(this);
   }
+
+  onUpdateUser() {
+    this.props.onUpdateUser = 'samy';
+  }
+
   render() {
+    console.log(this.props);
 
-    const list=
-    [
-      'Item 1',
-      'Item 2',
-      'Another item'
-    ];
-
-
-    const  title='';
-    const test='Another title';
+    const test = 'Another title';
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <h1>
-        {
-         list.map(item=>{
-           return (
-            <div onClick={this.onClick}>{item}</div>
-           )
-         })
-        }</h1>
+        <div onClick={this.onUpdateUser}>Update user</div>
+        {this.props.user}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  products: state.products,
+  user: state.user
+});
+
+const mapActionsToProps = {
+  onUpdateUser: updateUser
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(App);

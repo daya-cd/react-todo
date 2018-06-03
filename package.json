@@ -8,8 +8,10 @@
     "prettier": "^1.12.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0"
   },
   "scripts": {
     "precommit": "lint-staged",
