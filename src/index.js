@@ -7,6 +7,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 import productsReducer from './reducers/products-reducer';
 import userReducer from './reducers/user-reducer';
 
